@@ -4,18 +4,14 @@ import { eat, nap, play } from "../redux/Actions";
 
 
 
-const Activity = ({activity, eat}) => (
-   <div>
+const Activity = ({activity, eat, play, nap}) => (
+    <>
         <h1>What is the cat doing?</h1>
         <p>The cat is {activity}</p>
         <button onClick={() => eat()}>Eating</button>
-        <br />
-        <br/>
         <button onClick={() => play()}>Playing</button>
-        <br />
-        <br/>
-        <button onClick={() => nap()}>Napping</button>  
-    </div>
+        <button onClick={()=> nap()}>Napping</button>
+    </>
 )
 
 const mapStateToProps = state => {
@@ -25,5 +21,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { eat }
+    { eat, play, nap }
         )(Activity);
