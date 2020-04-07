@@ -1,3 +1,2 @@
-export const Action_Nap = "Action_Nap";
-export const Action_Eat = "Action_Eat";
-export const Action_Play = "Action_Plat";
+export const Action_Set_Activity = "Action_Set_Activity"
+export const Action_Set_Name = "Action_Set_Name"

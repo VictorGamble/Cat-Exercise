@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { eat, nap, play } from '../redux/Actions';
+import { setActivity } from '../redux/Actions';
+import UpdateName from './Name';
 
-
-
-const Activity = ({activity, eat, play, nap}) => (
-    <div>
-        <h1>What is the cat doing?</h1>
-        <p>The cat is {activity}</p>
-        <button onClick={() => eat()}>Eating</button>
-        <button onClick={() => play()}>Playing</button>
-        <button onClick={()=> nap()}>Napping</button>
-    </div>
+const Activity = ({activity, name, setActivity}) => (
+    <>
+        <h1>What is the Cat doing?</h1>
+        <p>{name} is {activity}</p>
+        <button onClick={() => setActivity("Eating")}>Eating</button>
+        <button onClick={() => setActivity("Playing")}>Playing</button>
+        <button onClick={() => setActivity("napping")}>Napping</button>
+        <UpdateName />
+    </>
 )
 
 const mapStateToProps = state => {
@@ -21,5 +21,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { eat, play, nap }
+    { setActivity }
         )(Activity);
